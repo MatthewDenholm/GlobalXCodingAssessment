@@ -10,21 +10,56 @@ namespace CodingSolution
         private string middleName;
         private string lastName;
 
-        People(string nameOne)
+       public People(string nameOne)
         {
             lastName = nameOne;
         }
 
-        People(string nameOne, string nameTwo)
+       public People(string nameOne, string nameTwo)
         {
             firstName = nameOne;
             lastName = nameTwo;
         }
-        People(string nameOne, string nameTwo, string nameThree)
+       public People(string nameOne, string nameTwo, string nameThree)
         {
             firstName = nameOne;
             middleName = nameTwo;
             lastName = nameThree;
         }
+
+        public string getLastName()
+        {
+            return lastName;
+        }
+
+        public string getFirstName()
+        {
+            return firstName;
+        }
+
+        public string getMiddleName()
+        {
+            return middleName;
+        }
+
+        public string toString()
+        {
+            string result = "";
+
+            if(firstName == null)
+            {
+                result = getLastName();
+            }
+            else if(getMiddleName() == null)
+            {
+                result = getFirstName() + " " + getLastName();
+            }
+            else
+            {
+                result = getFirstName() + " "  + getMiddleName() + " " + getLastName();
+            }
+            return result;
+        }
     }
+
 }
